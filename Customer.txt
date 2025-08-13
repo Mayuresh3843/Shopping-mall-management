@@ -1,0 +1,60 @@
+package com.ShoppingMall.CustomerModule;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+public class Customer {
+	// Attribute declaration
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	private String name;
+	private Integer phone;
+	private String email;
+	
+	// Constructor
+	public Customer(Integer id, String name, Integer phone, String email) {
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+	}
+	public Customer() {
+		super();
+	}
+	
+	// Getters and setters
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getPhone() {
+		return phone;
+	}
+	public void setPhone(Integer phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", phone=" + phone + ", email=" + email + "]";
+	}
+	
+
+}

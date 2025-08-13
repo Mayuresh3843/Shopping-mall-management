@@ -1,0 +1,76 @@
+package com.ShoppingMall.CustomerModule;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerController {
+@Autowired
+	private CustomerService Service;
+
+
+//RESTful API methods for Retrieval operations
+@GetMapping("/Customer")
+//Retrieve all
+public List<Customer> list()
+{
+return Service.listAll();
+}
+
+//RESTful API methods for Retrieval Single operation
+@GetMapping("/Customer/{id}")
+public ResponseEntity<Customer> get(@PathVariable Integer id)
+{
+try
+{
+Customer Customer = Service.get(id);
+return new ResponseEntity<Customer>(Customer, HttpStatus.OK);
+}
+catch (NoSuchElementException e)
+{
+return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+}
+}
+
+//RESTful API method for Create operation
+@PostMapping("/Customer")
+public void add(@RequestBody Customer Customer)
+{
+Service.save(Customer);
+}
+
+//RESTful API method for Delete operation
+@DeleteMapping("/Customer/{id}")
+public void delete(@PathVariable Integer id)
+{
+Service.delete(id);
+}
+
+//RESTful API method for Update operation
+@PutMapping("/UpdateCustomer/{id}")
+public ResponseEntity<?> update(@RequestBody Customer Customer, @PathVariable Integer id)
+{
+try
+{
+//Customer existProduct = Service.get(id);
+Customer.setId(id); 	
+Service.save(Customer);
+return new ResponseEntity<>(HttpStatus.OK);
+}
+catch (NoSuchElementException e)
+{
+return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+}
+}
+}
