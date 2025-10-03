@@ -1,6 +1,6 @@
 # 🏬 Shopping Mall Management – Customer Module  
 
-This project is part of the **Shopping Mall Management System**, developed as the **final project** during my **Java Full Stack Training Program** at **TNS IF**.  
+This project is part of the **Shopping Mall Management System**, developed as the **final project** during my **Java Full Stack Training Program** at **TNS India Foundation**.  
 
 I was responsible for building the **Customer Module**, which manages customer data and operations. The module is developed using **Java, Spring Boot, Hibernate, and MySQL**, and tested with **Postman**.  
 
