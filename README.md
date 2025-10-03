@@ -21,10 +21,10 @@ I was responsible for building the **Customer Module**, which manages customer d
 ## ✨ Features (Customer Module)  
 
 - ➕ Add a new customer  
-- 📖 View customer details  
+- 📖 View customer details
+- 🔎 Fetch customer by ID 
 - ✏️ Update existing customer information  
-- ❌ Delete customer records  
-- 🔎 Fetch customer by ID  
+- ❌ Delete customer records   
 - 🌐 Tested APIs with **Postman**  
 
 ---
